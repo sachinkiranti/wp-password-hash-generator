@@ -47,7 +47,7 @@ if (! function_exists('wp_password_hash_generator_frontend_action')) :
         $hashedPassword = wp_hash_password(sanitize_text_field($_POST['password']));
         wp_send_json(array(
             'hash' => $hashedPassword,
-            'sql'  => "UPDATE `wp_users` SET `user_pass` = '".$hashedPassword."' WHERE user_login = your_user_name"
+            'sql'  => "UPDATE `wp_users` SET `user_pass` = '".$hashedPassword."' WHERE `user_login` = 'your_user_name'"
         ));
         wp_die();
     }
