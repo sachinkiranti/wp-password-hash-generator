@@ -33,4 +33,4 @@ The Output of the above shortcode :
 ## License
 The Plugin is open-sourced software licensed under the [GNU license](LICENSE).
 
-I would love if you could email me and tell me about your project and how this code was used, just for my own continued personal gratification :)
+I would love if you could email me and tell me about your project and how this code was used :smiley:
