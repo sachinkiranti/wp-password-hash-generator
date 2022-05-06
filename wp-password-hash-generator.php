@@ -61,11 +61,15 @@ add_action("wp_ajax_nopriv_wp_password_hash_generator_frontend_action" , "wp_pas
 if (! function_exists('wp_password_hash_generator_enqueue_scripts')) :
 
     function wp_password_hash_generator_enqueue_scripts() {
-        wp_enqueue_script( 'wphg-script', plugin_dir_url(__FILE__).'assets/wphg.js', array('jquery'), null, true );
-        wp_localize_script('wphg-script', "wphg_data", array(
-            'ajaxurl' => admin_url( 'admin-ajax.php' ),
-            'action'  => 'wp_password_hash_generator_frontend_action'
-        ));
+        global $post;
+
+        if ( ( is_single() || is_page() ) && has_shortcode( $post->post_content, 'wp-password-hash-generator') ) {
+            wp_enqueue_script('wphg-script', plugin_dir_url(__FILE__) . 'assets/wphg.js', array('jquery'), null, true);
+            wp_localize_script('wphg-script', "wphg_data", array(
+                'ajaxurl' => admin_url('admin-ajax.php'),
+                'action' => 'wp_password_hash_generator_frontend_action'
+            ));
+        }
     }
 
 endif;
