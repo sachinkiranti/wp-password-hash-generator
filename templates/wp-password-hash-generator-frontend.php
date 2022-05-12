@@ -21,6 +21,13 @@
     .wp-password-hash-generator-wrapper button.wphg-btn-generate {
         float: right;
         cursor: pointer;
+        margin-right: 5px;
+    }
+
+    .wp-password-hash-generator-wrapper button.wphg-btn-generate-random {
+        float: right;
+        cursor: pointer;
+        margin-right: 5px;
     }
 
     .wp-password-hash-generator-wrapper td, th {
@@ -32,10 +39,19 @@
         width: 100%;
     }
     .wp-password-hash-generator-wrapper input {
-        width: 80%;
+        width: 100%;
     }
     .wp-password-hash-generator-wrapper input, button{
         vertical-align:middle;
+    }
+
+    .wp-password-hash-generator-wrapper .td-child {
+        display: inline-block;
+    }
+
+    .wp-password-hash-generator-wrapper .wphg-password-strength {
+        width: 100%;
+        text-align: center;
     }
 </style>
 <div class="wp-password-hash-generator-wrapper">
@@ -43,9 +59,19 @@
         <tr>
             <td class="wphg-title"><?php echo $password; ?> <button title="Copy to clipboard" class="wphg-btn-cp-clipboard">C</button></td>
             <td>
-                <input type="text" name="input_password" required placeholder="Enter the password">
-                <button class="wphg-btn-generate">Generate</button>
-                <small class="wphg-error" style="display: none">The field is required.</small>
+                <div class="td-parent">
+                    <div class="td-child" style="width: 60%;">
+                        <input type="text" name="input_password" required placeholder="Enter the password"> <br>
+                        <small class="wphg-password-strength" style="display: none">Very Weak</small>
+                    </div>
+
+                    <div  class="td-child" style="float: right">
+                        <button class="wphg-btn-generate" title="Generate">Generate</button>
+                        <button class="wphg-btn-generate-random" title="Generate Random Password">Random</button>
+                    </div>
+                    <br>
+                    <small class="wphg-error" style="display: none">The field is required.</small>
+                </div>
             </td>
         </tr>
         <tr>
