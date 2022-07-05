@@ -1,5 +1,7 @@
 This plugin simply generates the wordpress hash password and user password update sql query.
 
+The plugin is available in [wordpress.org](https://wordpress.org/plugins/domain-age-checker-tool/). You can check it out.
+
 ## Installation
 
 Download the zip file of the repository or clone the repository in your *wp-content/plugins*
